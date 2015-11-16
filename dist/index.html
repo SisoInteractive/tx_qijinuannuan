@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="maximum-dpr=2" name="flexible" />
+    <meta name="apple-touch-fullscreen" content="no"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <title></title>
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="assets/stylesheets/app.min.css">
+    <!-- endinject -->
+    <style>
+        .scene01{
+        }
+    </style>
+</head>
+<body>
+<!-- the class "content" is used for flexible plugin -->
+<div class="swiper-container content">
+    <!-- logo -->
+    <img src="assets/images/common/logo.png" class="logo pa lastNo" width="26%" style="z-index: 2;left: 7%;top: 3%;" alt=""/>
+    <img src="assets/images/common/flippage.png" class="maozhua pa firstNo lastNo" width="26%" style="z-index: 4;right: -3%;bottom: -4%;" alt=""/>
+    <!-- 进入游戏的按钮 -->
+    <a href="#" class="firstNo lastNo">
+        <img src="assets/images/common/btn-joingame.png" class=" pa" width="40%" style="z-index: 999;right: 1%;top:0.8%;" alt=""/>
+    </a>
+    <img src="assets/images/common/diaryside.png" class="side pa lastNo" style="z-index: 6;" alt=""/>
+    <!-- 切换按钮 -->
+    <div class="imgSliderbtn pa" style="display: none">
+        <img src="assets/images/common/navi-arrow.png" class="pa sliderPrev" style="left: 3%" alt=""/>
+        <img src="assets/images/common/navi-arrow.png" class="pa sliderNext" style="right: 3%" alt=""/>
+    </div>
+    <div class="imgSliderbtn2 pa" style="display: none">
+        <img src="assets/images/common/navi-arrow.png" class="pa sliderPrev" style="left: 3%" alt=""/>
+        <img src="assets/images/common/navi-arrow.png" class="pa sliderNext" style="right: 3%" alt=""/>
+    </div>
+    <div class="gril-warp" style="display: none"></div>
+    <div class="swiper-wrapper">
+        <!-- scene01 -->
+        <div class="swiper-slide scene scene01" style="display: block">
+            <img src="assets/images/page1/bg.jpg" width="100%" alt=""/>
+            <img src="assets/images/page1/lace1.png" data-load="load" width="100%" style="left: 0;top: 0;"/>
+            <img src="assets/images/page1/lace1.png" data-load="load" width="100%" style="left: 0;bottom: 0;-webkit-transform:  scaleY(-1);"/>
+            <img src="assets/images/page1/lace2.png" data-load="load" width="100%" class="lace" style="left: 0;"/>
+            <img src="assets/images/page1/lace2.png" data-load="load" width="100%" class="lace" style="right: 0;-webkit-transform:  scaleX(-1);"/>
+            <img src="assets/images/page1/title.png" class="title" data-load="load" alt=""/>
+            <a href="#" class="logQ">
+            <img src="assets/images/page1/btn-qqlogin.png" class="btn btnQQ" data-load="load" style="left: 6%" width="100%" alt=""/>
+            </a>
+            <a href="#" class="logW">
+            <img src="assets/images/page1/btn-wechatlogin-.png" class="btn btnW" data-load="load" style="right: 6%" width="100%" alt=""/>
+            </a>
+        </div>
+        <!-- scene02 -->
+        <div class="swiper-slide scene scene02" style="display: block">
+            <img src="assets/images/page2/bg-diarypaper.jpg" width="100%" alt=""/>
+            <img src="assets/images/page2/type1.png" class="type1" alt=""/>
+            <div class="text-warp">
+                <p class="text month-number">11</p>
+                <p class="text day-number">11</p>
+                <img src="assets/images/page2/type2.png" class="type2" alt=""/>
+            </div>
+            <img src="assets/images/page2/type3.png" class="type3" alt=""/>
+            <img src="assets/images/page2/damiao.png" class="miao" alt=""/>
+            <img src="assets/images/page2/sticker-nuannuan.png" class="people" alt=""/>
+
+        </div>
+        <!-- scene03 -->
+        <div class="swiper-slide scene scene03" style="display: block">
+            <div id="imgIsleder1" class="page3-f page3wrapper" style="display:block;"></div>
+            <img src="assets/images/page3/bg-diarypaper.jpg" class="pa" width="100%" alt=""/>
+            <img src="assets/images/page3/type-chapter1-6.png" class="pa chapter chapter1" width="100%" alt=""/>
+            <img src="assets/images/page3/type-chapter7.png" class="pa chapter chapter7" width="100%" alt=""/>
+            <img src="assets/images/page3/type-chapter8.png" class="pa chapter chapter8" width="100%" alt=""/>
+            <img src="assets/images/page3/type-chapter9.png" class="pa chapter chapter9" width="100%" alt=""/>
+            <img src="assets/images/page3/type-chapter10.png" class="pa chapter chapter10" width="100%" alt=""/>
+            <!-- 浏览10个地图后现实玩家的通关数据 -->
+            <div class="userMapData-warp" style="display: none">
+                <img src="assets/images/imgMap/map-chapter1.png" class="userMapData" alt=""/>
+                <img src="assets/images/page3/pin.png" class="pin" alt=""/>
+                <img src="assets/images/seal/seal-chapter1.png" class="seal" alt=""/>
+            </div>
+            <img src="assets/images/page3/typeend.png" class="pa typeend" alt=""/>
+        </div>
+        <!-- scene04 -->
+        <div class="swiper-slide scene scene04">
+            <div id="imgIsleder2" class="page4wrapper" style="display:block;"></div>
+            <img src="assets/images/common/bg-diarypaper456.jpg" width="100%" alt=""/>
+            <img src="assets/images/page4/type1.png" class="pa type1" alt=""/>
+            <img src="assets/images/page4/type2.png" class="pa type2" alt=""/>
+            <img src="assets/images/page4/btn-next.png" class="pa btn-next" alt=""/>
+            <div class="text-warp">
+                <p class="text clothes_number">11</p>
+                <p class= "text suit_number">21</p>
+            </div>
+            <div class="imgIsleder2-nub">
+                <p class="text imgIsleder2-number">1<span>/</span>11</p>
+            </div>
+        </div>
+        <!-- scene05 -->
+        <div class="swiper-slide scene scene05">
+            <img src="assets/images/page5/bgpaper.jpg" class="pa" width="100%" alt=""/>
+            <img src="assets/images/page5/model.png" class="pa model"  alt=""/>
+            <img src="assets/images/page5/type.png" class="pa type"  alt=""/>
+            <div class="text-warp">
+                <p class="text arena-number">41</p>
+                <p class= "text overcome-number">23</p>
+            </div>
+        </div>
+        <!-- scene06 -->
+        <div class="swiper-slide scene scene06">
+            <img src="assets/images/page6/bg-type.jpg" class="pa" width="100%" alt=""/>
+            <img src="assets/images/page6/model1.png" class="pa model model1"  alt=""/>
+            <img src="assets/images/page6/model2.png" class="pa model model2"  alt=""/>
+            <div class="text-warp">
+                <p class="text arena-number">41</p>
+                <p class= "text overcome-number">21113</p>
+            </div>
+        </div>
+        <!-- scene07 -->
+        <div class="swiper-slide scene scene07">
+            <img src="assets/images/page7/bg.jpg" width="100%" alt=""/>
+            <img src="assets/images/page7/type.png" class="type" alt=""/>
+            <img src="assets/images/page7/giftlist.png" class="giftlist" alt=""/>
+            <img src="assets/images/page7/btn-getgift.png" class="btn-getgift" alt=""/>
+            <img src="assets/images/page7/btn-miracletour.png" class="miracletour" alt=""/>
+            <div class="text-warp">
+                <p class="text month-number">11</p>
+                <p class="text day-number">11</p>
+                <p class="text hour-number">6666</p>
+            </div>
+
+            <img src="assets/images/common/diaryside.png" class=" pa border" style="height: 96%;top: 2%;z-index: 12;right: 0;" alt=""/>
+            <img src="assets/images/page1/lace1.png" data-load="load" class="pa" width="100%" style="left: 0;top: 0;"/>
+            <img src="assets/images/page1/lace1.png" data-load="load" class="pa" width="100%" style="left: 0;bottom: 0;-webkit-transform:  scaleY(-1);"/>
+            <img src="assets/images/page1/lace2.png" data-load="load"  class="lace pa" style="left: 0;"/>
+            <img src="assets/images/page1/lace2.png" data-load="load"  class="lace pa" style="right: 0;-webkit-transform:  scaleX(-1);"/>
+
+        </div>
+    </div>
+</div>
+
+<audio id="audio" loop="loop" src="assets/images/bgm03.mp3"></audio>
+<!-- inject:js -->
+<script src="assets/scripts/app.min.js"></script>
+<!-- endinject -->
+</body>
+</html>
