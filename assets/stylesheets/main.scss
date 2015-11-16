@@ -92,6 +92,15 @@ $page-base-rem : 64;
   overflow: hidden;
 }
 /* scene */
+.audio-logo{
+  @include calWidth(72);
+  position: absolute;
+  z-index: 999;
+  right: 0%;
+  &.active{
+    -webkit-animation: circle 11s infinite;
+  }
+}
 .side{
   height: 96%;
   top: 2%;
@@ -133,6 +142,7 @@ $page-base-rem : 64;
   width: 100%;
   position: relative !important;
   img{
+    @include calWidth(78);
     -webkit-transform: scale(1);
   }
   .sliderNext{
@@ -141,13 +151,25 @@ $page-base-rem : 64;
     -webkit-transform:scaleX(-1);
   }
 }
-
+.n-scene{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  .audio-logo{
+    left: 10px!important;
+    top: 10px;
+  }
+}
 .scene {
   backface-visibility: hidden;
   .text{
     position: absolute;
-    font-size: 62px;
+    font-size: 0.9rem;
     font-family: Alix2;
+    font-weight: bold;
     color: #f36c94 ;
     z-index: 3;
   }
@@ -174,25 +196,58 @@ $page-base-rem : 64;
 .scene02{
   img{  position: absolute;  }
   .type1{
+    opacity: 0;
     @include calWidth(232);
     @include calLeft(55);
     @include calTop(113);
   }
   .type2{
-    @include calWidth(372);
-    @include calLeft(210);
-    @include calTop(254);
+    opacity: 0;
+    @include calWidth(232);
+    @include calLeft(55);
+    @include calTop(160);
   }
   .type3{
-    @include calWidth(208);
-    @include calLeft(45);
-    @include calTop(650);
     opacity: 0;
+    @include calWidth(372);
+    @include calLeft(210);
+    @include calTop(258);
+  }
+  .type4{
+    opacity: 0;
+    @include calWidth(372);
+    @include calLeft(210);
+    @include calTop(338);
+  }
+  .type5{
+    opacity: 0;
+    @include calWidth(372);
+    @include calLeft(210);
+    @include calTop(398);
+  }
+  .type6{
+    opacity: 0;
+    @include calWidth(208);
+    @include calLeft(40);
+    @include calTop(698);
+  }
+  .type7{
+    opacity: 0;
+    @include calWidth(208);
+    @include calLeft(40);
+    @include calTop(738);
+  }
+  .type8{
+    opacity: 0;
+    @include calWidth(208);
+    @include calLeft(40);
+    @include calTop(788);
   }
   .miao{
     @include calWidth(150);
     @include calLeft(52);
     @include calTop(240);
+    opacity: 0;
   }
   .people{
     @include calWidth(508);
@@ -218,15 +273,14 @@ $page-base-rem : 64;
 .scene03{
   .typeend{
     @include calWidth(436);
-    @include calTop(940);
+    bottom: 2%;
     @include calLeft(156);
-    display: none;
+    opacity: 0;
   }
   .chapter{
-    display: none;
+    opacity: 0;
   }
   .chapter1{
-    display: block;
     @include calWidth(506);
     @include calTop(116);
     @include calLeft(55)
@@ -282,24 +336,50 @@ $page-base-rem : 64;
       @include calTop(50);
       @include calLeft(76);
     }
-    .userMapData.active{ -webkit-animation: papa1 .2s forwards 0.5s;  }
-    .seal.active{ -webkit-animation: papa .3s forwards 1s; }
-    .pin.active{ -webkit-animation: papa .3s forwards 0.7s; }
+
   }
 
 }
 .scene04{
+  .type{
+    opacity: 0;
+  }
   .type1{
-    @include calWidth(460);
+    @include calWidth(490);
     @include calTop(116);
-    @include calLeft(116);
+    @include calLeft(106);
   }
   .type2{
-    display: none;
     @include calWidth(420);
-    @include calTop(116);
-    @include calLeft(94);
+    @include calTop(156);
+    @include calLeft(116);
   }
+  .type3{
+    @include calWidth(420);
+    @include calTop(202);
+    @include calLeft(116);
+  }
+  .type4{
+    @include calWidth(420);
+    @include calTop(248);
+    @include calLeft(116);
+  }
+  .type5{
+     @include calWidth(480);
+     @include calTop(310);
+     @include calLeft(116);
+   }
+  .type6{
+    @include calWidth(480);
+    @include calTop(360);
+    @include calLeft(116);
+  }
+  .type7{
+    @include calWidth(420);
+    @include calTop(400);
+    @include calLeft(116);
+  }
+
   .btn-next{
     @include calWidth(130);
     @include calTop(346);
@@ -307,18 +387,19 @@ $page-base-rem : 64;
     z-index: 999;
   }
   .text-warp{
+    opacity: 0;
     position: absolute;
     @include calWidth(640);
-    @include calTop(246);
-    @include calLeft(96);
+    @include calTop(234);
+    @include calLeft(86);
     z-index: 15;
     p{
-      font-size: 80px;
+      font-size: 1rem;
     }
     .suit_number{
       z-index: 15;
       position: absolute;
-      @include calLeft(290);
+      @include calLeft(250);
     }
   }
   .imgIsleder2-nub{
@@ -328,7 +409,7 @@ $page-base-rem : 64;
     bottom: 6%;
     @include calLeft(286);
     .clothes_number{
-      font-size: 40px!important;
+      font-size: .67rem!important;
     }
     span{
       padding: 0 10px;
@@ -344,18 +425,35 @@ $page-base-rem : 64;
     opacity: 0;
   }
   .type{
-    @include calWidth(560);
-    @include calTop(113);
-    @include calLeft(56);
     opacity: 0;
+  }
+  .type1{
+     @include calWidth(532);
+     @include calTop(113);
+     @include calLeft(56);
+   }
+  .type2{
+    @include calWidth(532);
+    @include calTop(173);
+    @include calLeft(56);
+  }
+  .type3{
+    @include calWidth(532);
+    @include calTop(233);
+    @include calLeft(56);
+  }
+  .type4{
+    @include calWidth(532);
+    @include calTop(298);
+    @include calLeft(56);
   }
   .text-warp{
     position: absolute;
     opacity: 0;
     @include calTop(156);
-    @include calLeft(352);
+    @include calLeft(322);
     p{
-      font-size: 66px;
+      font-size: .87rem;
     }
     .overcome-number{
       @include calTop(63);
@@ -376,16 +474,66 @@ $page-base-rem : 64;
     left: -16%;
     opacity: 0;
   }
+  .type{
+    opacity: 0;
+  }
+  .type1{
+    @include calWidth(514);
+    @include calTop(113);
+    @include calLeft(56);
+  }
+  .type2{
+    @include calWidth(514);
+    @include calTop(164);
+    @include calLeft(56);
+  }
+  .type3{
+    @include calWidth(514);
+    @include calTop(210);
+    @include calLeft(56);
+  }
+  .type4{
+    @include calWidth(514);
+    @include calTop(264);
+    @include calLeft(56);
+  }
+  .type5{
+    @include calWidth(44);
+    @include calTop(328);
+    @include calLeft(396);
+  }
+  .type6{
+    @include calWidth(514);
+    @include calTop(404);
+    @include calLeft(56);
+  }
+  .type7{
+    @include calWidth(514);
+    @include calTop(458);
+    @include calLeft(56);
+  }
+  .type8{
+    @include calWidth(514);
+    @include calTop(508);
+    @include calLeft(56);
+  }
+  .type9{
+    @include calWidth(514);
+    @include calTop(553);
+    @include calLeft(56);
+  }
   .text-warp{
     position: absolute;
     @include calTop(100);
-    @include calLeft(296);
+    @include calLeft(284);
+    opacity: 0;
     p{
-      font-size: 70px;
+      font-size: 0.9rem;
     }
     .overcome-number{
       @include calTop(220);
-      @include calRight(-80);
+      opacity: 0;
+      @include calRight(-99);
     }
   }
 }
@@ -435,18 +583,62 @@ $page-base-rem : 64;
     z-index: 12;
     position: absolute;
     @include calWidth(400);
-    @include calTop(299);
-    @include calLeft(184);
+    @include calTop(303);
+    @include calLeft(187);
     p{
-      font-size: 54px;
+      font-size: .66rem;
     }
     .day-number{
-      @include calLeft(74);
+      @include calLeft(75);
     }
     .hour-number{
-      font-size: 57px;
-      @include calTop(118);
-      @include calRight(121);
+      font-size: .8rem;
+      @include calTop(115);
+      @include calRight(118);
+    }
+  }
+
+}
+
+.scene08{
+  .border{
+    -webkit-transform:scaleX(-1);
+  }
+  .lace{  @include calWidth(48); z-index: 10;top: 0; }
+  .type{
+    position: absolute;
+    @include calWidth(448);
+    @include calTop(306);
+    @include calLeft(96);
+  }
+  .giftlist{
+    z-index: 12;
+    position: absolute;
+    @include calWidth(400);
+    @include calTop(616);
+    @include calLeft(120);
+  }
+  .btn-getgift{
+    z-index: 12;
+    position: absolute;
+    @include calWidth(360);
+    @include calLeft(140);
+    bottom: 15%;
+
+    &:active{
+      @include calWidth(340);
+      @include calLeft(150);
+    }
+  }
+  .miracletour{
+    z-index: 12;
+    position: absolute;
+    @include calWidth(360);
+    @include calLeft(140);
+    bottom: 5%;
+    &:active{
+      @include calWidth(340);
+      @include calLeft(150);
     }
   }
 }
@@ -456,22 +648,66 @@ $page-base-rem : 64;
   .btn{ -webkit-animation: bounceIn 1s forwards; }
 }
 .scene02.active{
-  .miao{ -webkit-animation: wobble 1s forwards; }
+  .miao{ -webkit-animation: wobble 1s forwards 1.5s; }
   .people{ -webkit-animation: fadeInRight 1s forwards 0.5s; }
-  .text-warp{ -webkit-animation: fadeIn 1s forwards 0s; }
-  .type3{ -webkit-animation: fadeIn 1s forwards 0.5s; }
+  .text-warp{ -webkit-animation: fadeIn 1s forwards 2s; }
+  $gridColumns:      8 !default;
+  $time       :   0.5s !default;
+  @for $i from 1 through $gridColumns {
+    .type#{$i} {
+      -webkit-animation: fadeInLeft 1s forwards ( $time * $i );
+    }
+  }
 }
 .gril-warp{ -webkit-animation: gril-animation 2s infinite; }
-.scene04{}
-.scene05.active{
-  .model{
-    -webkit-animation: fadeInLeft 1s forwards 0.5s;
+.scene03.active{
+  .typeend{
+    -webkit-animation: fadeInLeft 1s forwards 4s;
   }
-  .type{
-    -webkit-animation: fadeIn 1s forwards 0.2s;
+  .chapter1{
+    -webkit-animation: fadeInLeft 1s forwards 0s;
+  }
+  .chapter7{
+    -webkit-animation: fadeInLeft 1s forwards 0.8s;
+  }
+  .chapter8{
+    -webkit-animation: fadeInLeft 1s forwards 1.6s;
+  }
+  .chapter9{
+    -webkit-animation: fadeInLeft 1s forwards 2.4s;
+  }
+  .chapter10{
+    -webkit-animation: fadeInLeft 1s forwards 3.2s;
+  }
+  .userMapData{ -webkit-animation: papa1 .2s forwards 4.2s;   }
+  .seal       { -webkit-animation: papa  .3s forwards 4.4s;   }
+  .pin        { -webkit-animation: papa  .2s forwards 4.2s;   }
+}
+.scene04.active{
+  $gridColumns:      7 !default;
+  $time       :   0.8s !default;
+  @for $i from 1 through $gridColumns {
+    .type#{$i} {
+      -webkit-animation: fadeInLeft 1s forwards ( $time * $i );
+    }
   }
   .text-warp{
-    -webkit-animation: fadeIn 1s forwards 0.2s;
+    -webkit-animation: fadeInLeft 1s forwards 3s;
+  }
+}
+.scene05.active{
+  .model{
+    -webkit-animation: fadeInLeft 1s forwards 1.7s;
+  }
+  $gridColumns:      4 !default;
+  $time       :   0.8s !default;
+  @for $i from 1 through $gridColumns {
+    .type#{$i} {
+      -webkit-animation: fadeInLeft 1s forwards ( $time * $i );
+    }
+  }
+  .text-warp{
+    -webkit-animation: fadeIn 1s forwards 2.4s;
   }
 }
 .scene06.active{
@@ -480,6 +716,19 @@ $page-base-rem : 64;
   }
   .model1{
     -webkit-animation: fadeInRight 1s forwards 0.1s;
+  }
+  $gridColumns:      9 !default;
+  $time       :   0.5s !default;
+  @for $i from 1 through $gridColumns {
+    .type#{$i} {
+      -webkit-animation: fadeInLeft 1s forwards ( $time * $i );
+    }
+  }
+  .text-warp{
+    -webkit-animation: fadeIn 1s forwards 1.2s;
+    .overcome-number{
+      -webkit-animation: fadeInLeft 1s forwards 2.8s;
+    }
   }
 }
 .maozhua{
@@ -523,12 +772,12 @@ $page-base-rem : 64;
 }
 
 .page4wrapper {
-  height: 80%;
+  height: 70%;
   width: 100%;
   overflow: hidden;
   z-index: 10;
   position: absolute;
-  bottom:-7%;
+  bottom:-9%;
 }
 .page4wrapper ul {
   list-style: none;
@@ -597,6 +846,7 @@ $page-base-rem : 64;
 /*the animation definition*/
 @-webkit-keyframes wobble {
   0% {
+    opacity: 0;
     -webkit-transform: none;
     transform: none
   }
@@ -621,6 +871,7 @@ $page-base-rem : 64;
     transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -11deg)
   }
   100% {
+    opacity: 1;
     -webkit-transform: none;
     transform: none
   }
@@ -717,4 +968,13 @@ $page-base-rem : 64;
   70%,79.99% {  background-position: 50% 0;  }
   80%,89.99% {  background-position: 25% 0;  }
   90%,100%   {  background-position: 0% 0;   }
+}
+
+@-webkit-keyframes circle {
+  from {
+    -webkit-transform: rotateZ(-360deg);
+  }
+  to {
+    -webkit-transform: rotateZ(0deg);
+  }
 }

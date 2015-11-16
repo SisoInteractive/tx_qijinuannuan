@@ -4,15 +4,17 @@ var app = {
     preload:function(){
         var that       = this,
             firstImg   = {   //this is load images for object
-                path        : "scene01",
+                path        : [ "scene01", "scene02" ],
                 arrName     : [],
                 loadAmounts : 0
             };
         //This method is to load first images
         (function( firstImg ){
-            var imgDomArr = document.getElementsByClassName(firstImg.path)[0].getElementsByTagName('img');
-            for( var j = 0; j < imgDomArr.length; j++ ){
-                firstImg.arrName.push( imgDomArr[j].src );
+            for(var x = 0; x <= firstImg.path.length - 1 ; x++){
+                var imgDomArr = document.getElementsByClassName(firstImg.path[x])[0].getElementsByTagName('img');
+                for( var j = 0; j < imgDomArr.length; j++ ){
+                    firstImg.arrName.push( imgDomArr[j].src );
+                }
             }
             if( firstImg.arrName != [] )
             {
@@ -23,7 +25,7 @@ var app = {
                         firstImg.loadAmounts++;
                         if( firstImg.loadAmounts == firstImg.arrName.length ){
                             app.main();
-                            console.log('app started success...');
+                            console.log('app started success...firstImg.loadAmounts is :' + firstImg.loadAmounts );
                         }
                     };
                 }
@@ -31,14 +33,10 @@ var app = {
         }( firstImg ));
     },
     main: function (){
-        var imgSliderBtn   = $('.imgSliderbtn'),
-            imgSliderBtn2  = $('.imgSliderbtn2'),
-            imgSliderPrev  = $('.imgSliderbtn .sliderPrev'),
-            imgSliderNext  = $('.imgSliderbtn .sliderNext'),
+        var imgSliderBtn2  = $('.imgSliderbtn2'),
             imgSliderPrev2 = $('.imgSliderbtn2 .sliderPrev'),
             imgSliderNext2 = $('.imgSliderbtn2 .sliderNext'),
-            imgIsleder2    = $('#imgIsleder2'),
-            imgIsleder1    = $('#imgIsleder1');
+            imgIsleder2    = $('#imgIsleder2');
         // New a object for mySwiper
         app.mySwiper = new Swiper ('.swiper-container', {
             direction: 'vertical',
@@ -49,12 +47,11 @@ var app = {
                 $('.swiper-slide').eq(0).addClass('active');
             },
             onTransitionStart: function (swiper) {
-                if( swiper.activeIndex == 1 || swiper.activeIndex == 2 ){ $('.gril-warp').show(); }else{ $('.gril-warp').hide(); }
-                if( swiper.activeIndex == 0 ){ $('.firstNo').hide(); }else{ $('.firstNo').show(); }
+                if( swiper.activeIndex == 2 ){ $('.gril-warp').show(); }  else { $('.gril-warp').hide(); }
+                if( swiper.activeIndex == 0 ){ $('.firstNo').hide(); $('.maozhua').hide();   }  else { $('.firstNo').show(); }
                 // show imgSlider btn in scene03
-                if( swiper.activeIndex == 2 ){ imgSliderBtn.show(); }else{ imgSliderBtn.hide(); }
                 if(swiper.activeIndex == 3){ imgSliderBtn2.show(); imgIsleder2.show(); if( scene04ImgIndex == 0){ imgSliderPrev2.hide() } }else{ imgIsleder2.hide(); imgSliderBtn2.hide(); }
-                if(swiper.activeIndex == swiper.slides.length - 1){ $('.lastNo').hide(); }else{ $('.lastNo').show(); }
+                if(swiper.activeIndex == swiper.slides.length - 1){ $('.maozhua').hide(); }else{ $('.lastNo').show(); }
             },
             onTransitionEnd: function (swiper) {
                 $('.swiper-slide').removeClass('active')
@@ -73,59 +70,6 @@ var app = {
         // lock Swipes
         //app.mySwiper.lockSwipes();
 
-        //push images data to an scene03ImgArr
-        var scene03ImgArr = [],
-            scene03ImgArrlength = 10,
-            scene03ImgIndex = 0; // scene03ImgIndex is index for page3imgSlider
-        (function( scene03ImgArr , scene03ImgArrlength ){
-            for(var i = 1; i <= scene03ImgArrlength; i++ ){
-                var data = { content: 'assets/images/page3/chapter'+ i +'.jpg' }
-                scene03ImgArr.push( data );
-            }
-        }( scene03ImgArr,scene03ImgArrlength));
-        //scene03 Slider init
-        var page3imgSlider = new iSlider({
-            dom:document.getElementById('imgIsleder1'),
-            data:scene03ImgArr,
-            isLooping: 0,
-            isOverspread: 1,
-            isAutoplay: false,
-            animateTime: 800,
-            animateType: 'depth',
-            onslidechange:function(Index){
-                scene03ImgIndex = Index;
-                if( Index === 0 ){
-                    imgSliderPrev.hide();
-                }else if(Index == scene03ImgArrlength - 1 ){
-                    imgSliderNext.hide();
-                    setInterval(function(){
-                        imgSliderPrev.hide();
-                        $('.userMapData-warp').fadeIn();
-                        $('.typeend').fadeIn();
-                        $('.page3-f').fadeOut();
-                        $('.seal , .pin , .userMapData').addClass('active');
-                        page3imgSlider.destroy(); // 销毁当前iSlider实例，内存释放
-                    },1000);
-                }else{
-                    imgSliderPrev.show();
-                    imgSliderNext.show();
-                }
-                switch(Index) {
-                    case 6:
-                        $('.chapter7').fadeIn();
-                        break;
-                    case 7:
-                        $('.chapter8').fadeIn();
-                        break;
-                    case 8:
-                        $('.chapter9').fadeIn();
-                        break;
-                    case 9:
-                        $('.chapter10').fadeIn();
-                        break;
-                }
-            }
-        });
 
         //this is scene04 images data
         var scene04ImgArr = [],
@@ -142,31 +86,20 @@ var app = {
         var page4imgSlider = new iSlider({
             dom:document.getElementById('imgIsleder2'),
             data:scene04ImgArr,
-            isLooping: 0,
+            isLooping: 1,
+            isAutoplay:1,
             isOverspread: 1,
-            animateTime: 800,
+            animateTime: 600,
             animateType: 'depth',
             onslidechange:function(Index){
                 scene04ImgIndex = Index;
-                if(scene04ImgIndex !== 0){
-                    imgSliderPrev2.show();
-                    if( scene04ImgIndex == scene04ImgArrLength-1 ){
-                        imgSliderNext2.hide();
-                    }else{
-                        imgSliderNext2.show();
-                    }
-                }else{
-                    imgSliderPrev2.hide();
-                }
-                $('.imgIsleder2-number').html( Index + 1 + "<span>/</span>"+ scene04ImgArrLength );
             }
         });
         //init imgSlider plugin
-        if( page3imgSlider.initIndex===0 ){
-            imgSliderPrev.hide();
+        if( page4imgSlider.initIndex===0 ){
+            //imgSliderPrev2.hide();
         }
-        imgSliderPrev.on('touchend',function(){ page3imgSlider.slidePrev(); });
-        imgSliderNext.on('touchend',function(){ page3imgSlider.slideNext(); });
+
         imgSliderPrev2.on('touchend',function(){ page4imgSlider.slidePrev(); });
         imgSliderNext2.on('touchend',function(){ page4imgSlider.slideNext(); });
 
@@ -179,7 +112,52 @@ var app = {
             type2.show();
             text.hide();
             $(this).hide();
-        })
+        });
+
+        //click mp3 box
+        $('.audio-logo').on("touchend", function(){
+            $(this).toggleClass('active');
+            if(!audio.paused){
+                $(this).attr('src','assets/images/common/btn-musicoff.png');
+                $('#audio')[0].pause();
+            }else{
+                $(this).attr('src','assets/images/common/btn-musicon.png');
+                $('#audio')[0].play();
+            }
+        });
+
+        //监听浏览器高度
+        var WindowHeight = $("body").height();
+        var WindowWidth = $("body").width();
+        var WindowPoportion = WindowWidth / WindowHeight;
+        var Poportion = 750 / 1150;
+        if ( WindowPoportion >= Poportion ){
+            console.log("高度太低,调整模式");
+            $('.scene02 .people').css("width","6.8375rem");
+            $('.scene07 .giftlist').css("top","9.25rem");
+            $('.scene07 .miracletour').css("bottom","3.4%");
+            $('.scene07 .btn-getgift').css("bottom","13%");
+            $('.page4wrapper ul li').css({
+                "width": "80%",
+                "left":'10%'
+            });
+            $('.scene05 .model').css({
+                "width": "7.35rem",
+                "left" : "1.175rem"
+            });
+            $('.scene06 .model').css({
+                "bottom": "-24%"
+            });
+            $('.userMapData-warp .userMapData').css({
+                "width":"6.1375rem",
+                "top"  :'1rem',
+                "left":'2rem'
+            });
+            $('.userMapData-warp .pin').css({
+                "top" :'0.9rem',
+                "left":"7.3rem"
+            });
+        }
 
         //  first time play BGM
         var initSound = function () {
